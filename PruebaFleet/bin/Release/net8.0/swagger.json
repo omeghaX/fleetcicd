@@ -1,0 +1,216 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "title": "PruebaFleet, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null",
+    "version": "1.0"
+  },
+  "paths": {
+    "/api/compras": {
+      "get": {
+        "tags": [
+          "Compras"
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "post": {
+        "tags": [
+          "Compras"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Compra"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "delete": {
+        "tags": [
+          "Compras"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "id",
+            "type": "string",
+            "format": "uuid"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      },
+      "put": {
+        "tags": [
+          "Compras"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Compra"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/users/create": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "consumes": [
+          "application/json-patch+json",
+          "application/json",
+          "text/json",
+          "application/*+json"
+        ],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "$ref": "#/definitions/Usuario"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    },
+    "/api/users/login": {
+      "post": {
+        "tags": [
+          "User"
+        ],
+        "parameters": [
+          {
+            "in": "query",
+            "name": "mail",
+            "type": "string"
+          },
+          {
+            "in": "query",
+            "name": "pass",
+            "type": "string"
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "Success"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "Compra": {
+      "type": "object",
+      "properties": {
+        "compId": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "compProducto": {
+          "type": "string"
+        },
+        "compCategoria": {
+          "type": "string"
+        },
+        "compTipoGarantia": {
+          "type": "string"
+        },
+        "compUsuarioGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "compDCreate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "compStatus": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    },
+    "Usuario": {
+      "type": "object",
+      "properties": {
+        "userId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userGuid": {
+          "format": "uuid",
+          "type": "string"
+        },
+        "userNombre": {
+          "type": "string"
+        },
+        "userPApellido": {
+          "type": "string"
+        },
+        "userSApellido": {
+          "type": "string"
+        },
+        "userEmail": {
+          "type": "string"
+        },
+        "userGenderId": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userAge": {
+          "format": "int32",
+          "type": "integer"
+        },
+        "userPass": {
+          "type": "string"
+        },
+        "userDcreate": {
+          "format": "date-time",
+          "type": "string"
+        },
+        "userStatus": {
+          "format": "int32",
+          "type": "integer"
+        }
+      }
+    }
+  }
+}
